@@ -19,15 +19,25 @@ public class Responder
     public Responder()
     {
         this.rnd = new Random();
-        this.respuestas = new ArrayList<>(Arrays.asList("Hola","Cual es tu problema","Adios","Puedo ayudarte en algo?","Repite de nuevo."));
+        this.respuestas = new ArrayList<>(Arrays.asList("Tienes problemas de conexion","Cual es tu problema","Necesitas reiniciar","Puedo ayudarte en algo?","Tenemos excelentes servidores."));
     }
 
     /**
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse()
+    public String generateResponse(String palabra)
     {
-        return respuestas.get(rnd.nextInt(respuestas.size()));
+        String respuesta = respuestas.get(rnd.nextInt(respuestas.size()));
+        int i = 0;
+        boolean encontrado = false;
+        while(i < respuestas.size() && !encontrado){
+            if (respuestas.get(i).contains(palabra)){
+                respuesta = respuestas.get(i);
+                encontrado = true;
+            }
+            i++;
+        }
+        return respuesta;
     }
 }
