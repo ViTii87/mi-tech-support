@@ -36,7 +36,7 @@ public class Responder
      */
     public String generateResponse(String palabra)
     {
-        String respuesta;
+        String respuesta = null;
         respuesta = respuestasMap.get(palabra);
         if(respuesta == null){
             respuesta = respuestas.get(rnd.nextInt(respuestas.size()));
