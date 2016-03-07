@@ -36,9 +36,10 @@ public class Responder
      */
     public String generateResponse(String palabra)
     {
-        String respuesta = respuestas.get(rnd.nextInt(respuestas.size()));
-        if(respuestasMap.containsKey(palabra)){
-            respuesta = respuestasMap.get(palabra);
+        String respuesta;
+        respuesta = respuestasMap.get(palabra);
+        if(respuesta == null){
+            respuesta = respuestas.get(rnd.nextInt(respuestas.size()));
         }
         return respuesta;
     }
